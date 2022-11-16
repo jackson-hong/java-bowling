@@ -19,15 +19,15 @@ public class MarkTest {
 
     static Stream<Arguments> markArgs() {
         return Stream.of(
-                Arguments.of(new FinalFrame(new Scores(Arrays.asList(10,6,3)), 10), "X|6|3"),
-                Arguments.of(new FinalFrame(new Scores(Arrays.asList(5,5,5)), 10), "5|/|5"),
-                Arguments.of(new FinalFrame(new Scores(Arrays.asList(5,5,10)), 10), "5|/|X"),
-                Arguments.of(new FinalFrame(new Scores(Arrays.asList(5,3)), 10), "5|3"),
-                Arguments.of(new FinalFrame(new Scores(Arrays.asList(10,6,4)), 10), "X|6|/"),
-                Arguments.of(new FinalFrame(new Scores(Arrays.asList(10,10,10)), 10), "X|X|X"),
-                Arguments.of(new NormalFrame(new Scores(Arrays.asList(10,3)), 7), "X|3"),
-                Arguments.of(new NormalFrame(new Scores(Arrays.asList(0,10,3)), 7), "0|/"),
-                Arguments.of(new NormalFrame(new Scores(Arrays.asList(5)), 7), "5")
+                Arguments.of(new FinalFrame(new Scores(Arrays.asList(10,6,3))), "X|6|3"),
+                Arguments.of(new FinalFrame(new Scores(Arrays.asList(5,5,5))), "5|/|5"),
+                Arguments.of(new FinalFrame(new Scores(Arrays.asList(5,5,10))), "5|/|X"),
+                Arguments.of(new FinalFrame(new Scores(Arrays.asList(5,3))), "5|3"),
+                Arguments.of(new FinalFrame(new Scores(Arrays.asList(10,6,4))), "X|6|/"),
+                Arguments.of(new FinalFrame(new Scores(Arrays.asList(10,10,10))), "X|X|X"),
+                Arguments.of(new NormalFrame(new Scores(Arrays.asList(10,3))), "X|3"),
+                Arguments.of(new NormalFrame(new Scores(Arrays.asList(0,10,3))), "0|/"),
+                Arguments.of(new NormalFrame(new Scores(Arrays.asList(5))), "5")
         );
     }
 

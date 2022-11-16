@@ -3,22 +3,17 @@ package bowling.domain;
 import bowling.type.BowlingScore;
 import bowling.type.PlayStatus;
 
+import java.util.LinkedList;
 import java.util.Objects;
 
 public abstract class DefaultFrame implements Frame {
 
-    protected int order = 1;
     protected Scores scores;
     protected PlayStatus playStatus;
+    protected LinkedList<Frame> otherFrames;
 
     public DefaultFrame(Scores scores) {
         this.scores = scores;
-        this.playStatus = decideEnd(scores);
-    }
-
-    public DefaultFrame(Scores scores, int order) {
-        this.scores = scores;
-        this.order = order;
         this.playStatus = decideEnd(scores);
     }
 
@@ -32,11 +27,6 @@ public abstract class DefaultFrame implements Frame {
     public void nextTry() {
         scores.nextTry();
         playStatus = PlayStatus.END;
-    }
-
-    @Override
-    public int getOrder() {
-        return order;
     }
 
     @Override
@@ -74,11 +64,11 @@ public abstract class DefaultFrame implements Frame {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DefaultFrame that = (DefaultFrame) o;
-        return order == that.order && Objects.equals(scores, that.scores) && playStatus == that.playStatus;
+        return Objects.equals(scores, that.scores) && playStatus == that.playStatus && Objects.equals(otherFrames, that.otherFrames);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(order, scores, playStatus);
+        return Objects.hash(scores, playStatus, otherFrames);
     }
 }

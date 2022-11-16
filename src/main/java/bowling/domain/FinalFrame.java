@@ -4,15 +4,14 @@ import bowling.type.PlayStatus;
 
 public class FinalFrame extends DefaultFrame {
 
-    public FinalFrame(Scores scores, int order) {
-        super(scores, order);
+    public FinalFrame(Scores scores) {
+        super(scores);
         this.scores = scores;
-        this.order = order;
         this.playStatus = PlayStatus.IN_PROGRESS;
     }
 
     @Override
-    public Frame nextFrame() {
+    public Frame nextFrame(int currentOrder) {
         throw new UnsupportedOperationException("no next frame available");
     }
 

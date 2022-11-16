@@ -9,9 +9,8 @@ public class NormalFrame extends DefaultFrame {
 
     public static final int MAX_SCORE_SIZE = 2;
 
-    public NormalFrame(int order, Scores scores, PlayStatus playStatus) {
-        super(scores, order);
-        this.order = order;
+    public NormalFrame(Scores scores, PlayStatus playStatus) {
+        super(scores);
         this.scores = scores;
         this.playStatus = playStatus;
     }
@@ -23,17 +22,12 @@ public class NormalFrame extends DefaultFrame {
         }
     }
 
-    public NormalFrame(Scores scores, int order) {
-        super(scores, order);
-    }
-
     @Override
-    public Frame nextFrame() {
-        int nextOrder = order + 1;
+    public Frame nextFrame(int nextOrder) {
         if (nextOrder == LAST_FRAME_ORDER) {
-            return new FinalFrame(new Scores(getPinCalculateStrategy()), nextOrder);
+            return new FinalFrame(new Scores(getPinCalculateStrategy()));
         }
-        return new NormalFrame(new Scores(getPinCalculateStrategy()), nextOrder);
+        return new NormalFrame(new Scores(getPinCalculateStrategy()));
     }
 
 

@@ -29,7 +29,7 @@ public class ResultView {
     }
 
     public void printGameScores(PlayerName playerName, Frames frames) {
-        System.out.printf(FRAME_TRY_MSG_FORMAT, frames.getLastOrder(), frames.getLastTry());
+        System.out.printf(FRAME_TRY_MSG_FORMAT, frames.getCurrentOrder(), frames.getLastTry());
         System.out.println(FRAME_NUMBER_PANEL);
         System.out.printf(NAME_FORMAT, playerName);
         frames.getFrames().forEach(frame ->

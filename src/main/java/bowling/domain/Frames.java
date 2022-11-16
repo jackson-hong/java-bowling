@@ -9,6 +9,7 @@ import java.util.List;
 public class Frames {
     public final static int LAST_FRAME_ORDER = 10;
 
+    private int currentOrder = 1;
     private final List<Frame> frames;
     private PlayStatus playStatus = PlayStatus.IN_PROGRESS;
 
@@ -22,10 +23,6 @@ public class Frames {
 
     private Frame getLastFrame() {
         return frames.get(frames.size() - 1);
-    }
-
-    public int getLastOrder() {
-        return getLastFrame().getOrder();
     }
 
     public int getLastTry() {
@@ -50,7 +47,8 @@ public class Frames {
     }
 
     public void nextFrame() {
-        frames.add(getLastFrame().nextFrame());
+        currentOrder++;
+        frames.add(getLastFrame().nextFrame(currentOrder));
     }
 
     private boolean isEnd() {
@@ -64,5 +62,9 @@ public class Frames {
 
     public int size() {
         return frames.size();
+    }
+
+    public int getCurrentOrder() {
+        return currentOrder;
     }
 }

@@ -15,11 +15,9 @@ public interface Frame {
 
     void nextTry();
 
-    Frame nextFrame();
+    Frame nextFrame(int order);
 
     int getLatestScore();
-
-    int getOrder();
 
     int getScoreSize();
 }

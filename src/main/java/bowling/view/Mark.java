@@ -13,9 +13,9 @@ public class Mark {
         if (isFirstTry(frame)) {
             return result.toString();
         }
-        if (isLastFrame(frame)) {
-            return getFinalMark(frame);
-        }
+//        if (isLastFrame(frame)) {
+//            return getFinalMark(frame);
+//        }
         result.append(MARK_DIVIDER);
         result.append(getDefaultMark(frame));
         return result.toString();
@@ -31,9 +31,9 @@ public class Mark {
         return String.valueOf(frame.getSecondScore());
     }
 
-    private static boolean isLastFrame(Frame frame) {
-        return frame.getOrder() == MAX_FRAME_NUMBER;
-    }
+//    private static boolean isLastFrame(Frame frame) {
+//        return frame.getOrder() == MAX_FRAME_NUMBER;
+//    }
 
     private static boolean isFirstTry(Frame frame) {
         return frame.getScoreSize() == 1;
