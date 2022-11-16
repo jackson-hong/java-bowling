@@ -30,12 +30,14 @@ public class NormalFrame extends DefaultFrame {
     @Override
     public Frame nextFrame() {
         int nextOrder = order + 1;
+        Frame result;
+        result = new NormalFrame(new Scores(getPinCalculateStrategy()), nextOrder);
         if (nextOrder == LAST_FRAME_ORDER) {
-            return new FinalFrame(new Scores(getPinCalculateStrategy()), nextOrder);
+            result = new FinalFrame(new Scores(getPinCalculateStrategy()), nextOrder);
         }
-        return new NormalFrame(new Scores(getPinCalculateStrategy()), nextOrder);
+        neighborFrames.add(result);
+        return result;
     }
-
 
 
 }

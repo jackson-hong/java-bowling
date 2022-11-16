@@ -3,6 +3,7 @@ package bowling.domain;
 import bowling.type.BowlingScore;
 import bowling.type.PlayStatus;
 
+import java.util.LinkedList;
 import java.util.Objects;
 
 public abstract class DefaultFrame implements Frame {
@@ -10,6 +11,7 @@ public abstract class DefaultFrame implements Frame {
     protected int order = 1;
     protected Scores scores;
     protected PlayStatus playStatus;
+    protected LinkedList<Frame> neighborFrames;
 
     public DefaultFrame(Scores scores) {
         this.scores = scores;
@@ -81,4 +83,5 @@ public abstract class DefaultFrame implements Frame {
     public int hashCode() {
         return Objects.hash(order, scores, playStatus);
     }
+
 }
