@@ -9,57 +9,58 @@ import java.util.Objects;
 public class Scores {
     private static final int MAX_PIN_COUNT = 10;
 
-    private final List<Integer> scores;
+    private final List<Integer> fallenPins;
     private FallenPinCalculateStrategy strategy;
 
     public Scores(FallenPinCalculateStrategy strategy) {
         this.strategy = strategy;
-        this.scores = new ArrayList<>();
-        scores.add(strategy.calculate(MAX_PIN_COUNT));
+        this.fallenPins = new ArrayList<>();
+        int pinNum = strategy.calculate(MAX_PIN_COUNT);
+        fallenPins.add(pinNum);
     }
 
-    public Scores(List<Integer> scores) {
-        this.scores = scores;
+    public Scores(List<Integer> fallenPins) {
+        this.fallenPins = fallenPins;
     }
 
     public boolean isStrike() {
-        return scores.get(0) == 10;
+        return fallenPins.get(0) == 10;
     }
 
     public void nextTry() {
         int maxNum = MAX_PIN_COUNT - getFirst();
         int newScore = strategy.calculate(maxNum);
-        scores.add(newScore);
+        fallenPins.add(newScore);
     }
 
     public void nextTry(int maxNum) {
-        scores.add(strategy.calculate(maxNum));
+        fallenPins.add(strategy.calculate(maxNum));
     }
 
     public int getFirst() {
-        return scores.get(0);
+        return fallenPins.get(0);
     }
 
     public int getSecond() {
-        return scores.get(1);
+        return fallenPins.get(1);
     }
 
     public int getThird() {
-        return scores.get(2);
+        return fallenPins.get(2);
     }
 
     public int getLatest() {
-        return scores.get(scores.size() - 1);
+        return fallenPins.get(fallenPins.size() - 1);
     }
 
     public int sum() {
-        return scores.stream()
+        return fallenPins.stream()
                 .mapToInt(i -> i)
                 .sum();
     }
 
     public int size() {
-        return scores.size();
+        return fallenPins.size();
     }
 
     @Override
@@ -67,11 +68,11 @@ public class Scores {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Scores that = (Scores) o;
-        return Objects.equals(scores, that.scores);
+        return Objects.equals(fallenPins, that.fallenPins);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(scores);
+        return Objects.hash(fallenPins);
     }
 }

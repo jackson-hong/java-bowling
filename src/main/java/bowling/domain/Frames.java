@@ -10,6 +10,7 @@ public class Frames {
     public final static int LAST_FRAME_ORDER = 10;
 
     private int currentOrder = 1;
+    private int totalScore = 0;
     private final List<Frame> frames;
     private PlayStatus playStatus = PlayStatus.IN_PROGRESS;
 

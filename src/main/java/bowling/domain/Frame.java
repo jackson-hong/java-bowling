@@ -20,4 +20,6 @@ public interface Frame {
     int getLatestScore();
 
     int getScoreSize();
+
+    int getTotalScore();
 }

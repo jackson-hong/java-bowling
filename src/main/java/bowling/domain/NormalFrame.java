@@ -24,12 +24,17 @@ public class NormalFrame extends DefaultFrame {
 
     @Override
     public Frame nextFrame(int nextOrder) {
+        Frame result;
+        result = new NormalFrame(new Scores(getPinCalculateStrategy()));
         if (nextOrder == LAST_FRAME_ORDER) {
-            return new FinalFrame(new Scores(getPinCalculateStrategy()));
+            result = new FinalFrame(new Scores(getPinCalculateStrategy()));
         }
-        return new NormalFrame(new Scores(getPinCalculateStrategy()));
+        otherFrames.add(result);
+        return result;
     }
 
-
-
+    @Override
+    public int getTotalScore() {
+        return 0;
+    }
 }

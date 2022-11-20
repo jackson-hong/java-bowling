@@ -35,4 +35,9 @@ public class FinalFrame extends DefaultFrame {
     private boolean hasAnotherChance() {
         return scores.sum() >= 10;
     }
+
+    @Override
+    public int getTotalScore() {
+        return 0;
+    }
 }
